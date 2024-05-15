@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+</head>
+<body>
+    <h1>Age Calculator</h1>
+
+
+    <label for="birthdate">Enter your birthdate:</label>
+<input type="date" id="birthdate">
+<button onclick="calculateAge()">Calculate Age</button>
+<p id="result"></p>
+<p id="result1"></p>
+<p id="result2"></p>
+<p id="result3"></p>
+<p id="result4"></p>
+
+<script>
+function calculateAge() {
+    var birthdateInput = document.getElementById("birthdate").value;
+    var birthdate = new Date(birthdateInput);
+    var today = new Date();
+    var age = today.getFullYear() - birthdate.getFullYear();
+    var month = 12 * age
+    var day = (30 *12) * age
+    var hour = 24 * day
+    var minuts = 60 * hour
+    var monthDiff = today.getMonth() - birthdate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdate.getDate())) {
+        age--;
+    }
+    
+    document.getElementById("result").innerText = "You are " + age + " years old.";
+    document.getElementById("result1").innerText = "Month = " + month ;
+    document.getElementById("result2").innerText = "Days = " + day ;
+    document.getElementById("result3").innerText = "Hour = " + hour ;
+    document.getElementById("result4").innerText = "Minuts = " + minuts ;
+
+}
+</script>
+
+
+</body>
+</html>
